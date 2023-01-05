@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
-import "./Weather.css";
 import axios from "axios";
+import "./Weather.css";
+
 
 export default function Weather(props){
-    const [weatherData, setWeatherData] =useState({ready: false});
+    const [weatherData, setWeatherData] =useState({ready:false});
     
     function handleResponse(response){
         console.log(response.data);

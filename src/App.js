@@ -10,7 +10,7 @@ function App() {
    <Weather />
    <footer>
     This project was coded by Morgan Gropp and is {""}
-   <a href="https://github.com/MoeGropp/weather-app-project.git" target="_blank">
+   <a href="https://github.com/MoeGropp/weather-app-project.git" rel="noopener">
       open sourced on GitHub 
    </a>
    </footer>

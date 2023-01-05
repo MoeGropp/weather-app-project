@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import axios from "axios";
 
@@ -10,7 +11,7 @@ export default function Weather(props){
         setWeatherData({
             ready:true,
             temperature: response.data.main.temp,
-            date:"Monday 10:00",
+            date:new Date(response.data.dt*1000),
             humidity: response.data.main.humidity,
             wind: response.data.main.wind.speed,
             city:response.data.name,
@@ -36,7 +37,7 @@ export default function Weather(props){
                 </form>
             <h1>{weatherData.city}</h1>
             <ul>
-                <li>{weatherData.date}</li>
+                <li><FormattedDate date={weatherData.date} /></li>
                 <li className="text-capitalize">{weatherData.description}</li>
             </ul>
             <div className="row mt-3">
@@ -61,7 +62,7 @@ export default function Weather(props){
     }else{
     
     const apiKey ="24ea4545b6bf0dfca0006b86o72e23at";
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
 

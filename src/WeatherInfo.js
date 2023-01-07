@@ -20,9 +20,8 @@ export default function WeatherInfo(props){
                     <div>
                     <WeatherIcon code={props.data.WeatherIcon} />
                       </div>
-                   <WeatherTemperature />
-                      <span className="temperature">{Math.round(props.data.temperature)}</span>
-                      <span className="unit">℉</span>
+                   <WeatherTemperature celsius={props.data.temperature} />
+                     
                       
                 </div>
     <div className="col-6">

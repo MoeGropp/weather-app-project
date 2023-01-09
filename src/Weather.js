@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
+import WeatherIcon from "./WeatherIcon.js";
 
 
 export default function Weather(props){
-    const [weatherData, setWeatherData] =useState({ready:false});
+    const [weatherData, setWeatherData] =useState({ready: false});
     const [city, setCity]=useState(props.defaultCity);
     
     function handleResponse(response){
@@ -14,7 +15,7 @@ export default function Weather(props){
             temperature: response.data.main.temp,
             date:new Date(response.data.dt*1000),
             humidity: response.data.main.humidity,
-            wind: response.data.main.wind.speed,
+            wind: response.data.wind.speed,
             city:response.data.name,
             icon: response.data.weather[0].icon,
             description:response.data.weather[0].description
@@ -22,8 +23,7 @@ export default function Weather(props){
     }
     function search(){
         const apiKey ="2374f5250bbb20df96c66eff4adc24f0";
-        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?
-        q=${city}&appid=${apiKey}&units=metric`;
+        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         axios.get(apiUrl).then(handleResponse);
     }
 

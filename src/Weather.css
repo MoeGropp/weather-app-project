@@ -28,10 +28,8 @@ list-style: none;
 }
 .Weather canvas{
     margin-top: 5px;
+    margin-bottom: -60px;
     margin-right: 10px;
-    
-    
-    
 }
 .Weather .temperature{
     font-weight: bold;
